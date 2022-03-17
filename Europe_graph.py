@@ -2,8 +2,10 @@ import itertools
 import matplotlib.pyplot as plt
 import networkx as nx
 import numpy.random as rnd
+import geopy.distance as dist
 
 graph = nx.read_edgelist("graph.txt")  # создание графа по списку ребер из файла
+
 graph.add_node('Malta')
 graph.add_node('Iceland')  # добавляю островные государства
 graph.add_node('Cyprus')

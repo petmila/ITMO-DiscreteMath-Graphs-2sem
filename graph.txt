@@ -36,7 +36,7 @@ Croatia Serbia
 Croatia Montenegro
 Croatia Slovenia
 Czech_Republic Germany
-Czech-Republic Slovakia
+Czech_Republic Slovakia
 Czech_Republic Poland
 Denmark Germany
 Estonia Russia
