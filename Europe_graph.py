@@ -4,14 +4,9 @@ import networkx as nx
 import numpy.random as rnd
 import geopy.distance as dist
 
-graph = nx.read_edgelist("graph.txt")  # создание графа по списку ребер из файла
-
-graph.add_node('Malta')
-graph.add_node('Iceland')  # добавляю островные государства
-graph.add_node('Cyprus')
-print("(b)")
-print("Number of nodes:", graph.number_of_nodes())
-print("Number of edges:", graph.number_of_edges())
+#graph = nx.Graph()
+graph = nx.read_edgelist("graphs.txt") 
+graph.add_node('c')
 
 subgraphs = list(nx.connected_components(graph))
 nodes_list = {}
@@ -43,4 +38,10 @@ for subgraph in subgraphs:
         nodes_list = subgraph
 print("Girth:", len(nodes_list))
 
-print("(c)")
+blocks = list(nx.biconnected_components(graph))
+print("Biconnected components:")
+for item in blocks:
+    print(item)
+print("2-edge-connected components:")
+for item in list(nx.biconnected_component_edges(graph)):
+    print(item)
