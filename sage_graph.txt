@@ -1,0 +1,25 @@
+from sage.graphs.connectivity import blocks_and_cuts_tree
+h = Graph({'Armenia': ['Turkey','Georgia'],'Albania' :['Greece','Serbia','Kosovo','North_Macedonia'],'Andorra' :['Spain','France'],'Austria' : ['Germany','Czech_Republic','Slovakia','Hungary','Slovenia','Italy','Switzerland','Liechtenstein'],
+'Belarus':['Russia','Ukraine','Poland','Latvia','Lithuania'],'Belgium':['France','Germany','Luxembourg','Netherlands'],'Bosnia_and_Herzegovina': ['Croatia','Serbia','Montenegro'],'Bulgaria' :['Turkey','Greece','North_Macedonia','Romania','Serbia'],
+'Croatia':['Hungary','Serbia','Montenegro','Slovenia'],'Czech_Republic':['Germany','Slovakia','Poland'],'Denmark' : ['Germany'],'Estonia' :['Russia','Latvia'],'Finland':['Sweden','Norway','Russia'],'France':['Luxembourg','Germany','Switzerland',
+'Italy','Monaco','Spain'],'Germany':['Poland','Switzerland','Luxembourg','Netherlands'],'Georgia':['Russia','Turkey'],'Greece':['North_Macedonia','Turkey'],'Hungary':['Slovakia','Ukraine','Romania','Serbia','Slovenia'],'Ireland':['United_Kingdom'],
+'Italy':['Switzerland','Slovenia','San_Marino','Vatican_City'],'Kosovo':['Serbia','North_Macedonia','Montenegro'],'Latvia' :['Lithuania','Russia'],'Liechtenstein' :['Switzerland'],'Lithuania':['Poland','Russia'],'Moldova':['Romania','Ukraine'],
+'Montenegro':['Serbia'], 'North_Macedonia' :['Serbia'],'Norway':['Russia','Sweden'],'Poland':['Slovakia','Ukraine','Russia'],'Portugal':['Spain'],'Romania' :['Serbia','Ukraine'],'Russia':['Ukraine'],'Slovakia':['Ukraine']}); h
+h.plot()
+T = blocks_and_cuts_tree(h)
+from sage.graphs.connectivity import spqr_tree
+t = Graph({'Armenia': ['Turkey','Georgia'],'Albania':['Greece','Serbia','Kosovo','North_Macedonia'],'Austria' : ['Germany','Czech_Republic','Slovakia','Hungary','Slovenia','Italy','Switzerland','Liechtenstein'],
+'Belarus':['Russia','Ukraine','Poland','Latvia','Lithuania'],'Belgium':['France','Germany','Luxembourg','Netherlands'],'Bosnia_and_Herzegovina': ['Croatia','Serbia','Montenegro'],'Bulgaria' :['Turkey','Greece','North_Macedonia','Romania','Serbia'],
+'Croatia':['Hungary','Serbia','Montenegro','Slovenia'],'Czech_Republic':['Germany','Slovakia','Poland'],'Estonia' :['Russia','Latvia'],'France':['Luxembourg','Germany','Switzerland',
+'Italy'],'Germany':['Poland','Switzerland','Luxembourg','Netherlands'],'Georgia':['Russia','Turkey'],'Greece':['North_Macedonia','Turkey'],'Hungary':['Slovakia','Ukraine','Romania','Serbia','Slovenia'],
+'Italy':['Switzerland','Slovenia'],'Kosovo':['Serbia','North_Macedonia','Montenegro'],'Latvia' :['Lithuania','Russia'],'Liechtenstein' :['Switzerland'],'Lithuania':['Poland','Russia'],'Moldova':['Romania','Ukraine'],
+'Montenegro':['Serbia'], 'North_Macedonia' :['Serbia'],'Poland':['Slovakia','Ukraine','Russia'],'Romania' :['Serbia','Ukraine'],'Russia':['Ukraine'],'Slovakia':['Ukraine']})
+t.plot()
+Tree = spqr_tree(t)
+Tree.plot()
+import networkx as nx
+import matplotlib.pyplot as plt
+d = nx.to_networkx_graph(Tree)
+plt.figure(figsize=(16, 9))
+nx.draw_planar(d,with_labels=True)
+plt.show()
